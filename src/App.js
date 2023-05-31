@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./container/Dashboard/Dashboard";
+import Home from "./container/Home/Home";
+import ErrorPage from "./container/ErrorPage/ErrorPage";
+import User from "./container/User/User";
+import Custumer from "./container/Customer/Customer";
+import Product from "./container/Product/Product"
+import Orders from "./container/Orders/Orders";
+import Coupon from "./container/Coupon/Coupon";
+import Login from "./container/Login/Login";
 
-function App() {
+function App() {  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/dashboard" element={<Dashboard />}/>
+      <Route path="/user" element={<User />}/>
+      <Route path="/customer" element={<Custumer />}/>
+      <Route path="/product" element={<Product />}/>
+      <Route path="/orders" element={<Orders />}/>
+      <Route path="/coupon" element={<Coupon />}/>
+      <Route path="/login" element={<Login />}/>
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
 
