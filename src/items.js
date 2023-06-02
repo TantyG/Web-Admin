@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 
   const items = [
     {
-      label: <NavLink to="/">Home</NavLink>,
+      label: <NavLink to="/home">Home</NavLink>,
       key: "home",
       icon: <HomeOutlined />,
     },

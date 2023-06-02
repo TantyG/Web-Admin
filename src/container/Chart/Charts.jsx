@@ -1,11 +1,12 @@
-import { Breadcrumb, Layout, theme } from "antd";
+import { Layout, Space, theme } from "antd";
 import { Sidebar } from "../../component/Sider/Sider";
 import { Navbar } from "../../component/Header/Header";
 import { FooterBar } from "../../component/Footer/Footer";
-import { TableProduct } from "../../component/Table/TableProduct";
+import ChartBar, { ChartsLine } from "../../component/Chart";
+import ChartRadial from "../../component/Chart/ChartRadial";
 const { Content } = Layout;
 
-const Product = () => {
+const Charts = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -24,7 +25,14 @@ const Product = () => {
               margin: "0 16px",
             }}
           >
-            <Breadcrumb style={{margin: "16px 0"}}/>
+            {/* <Breadcrumb
+              style={{
+                margin: "16px 0",
+              }}
+            >
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            </Breadcrumb> */}
             <div
               style={{
                 padding: 24,
@@ -32,7 +40,14 @@ const Product = () => {
                 background: colorBgContainer,
               }}
             >
-              <TableProduct />
+                <ChartsLine aspect={2/0.5}/>
+              <Space size={20}>
+                
+                <Space>
+                  <ChartBar />
+                  <ChartRadial />
+                </Space>
+              </Space>
             </div>
           </Content>
           <FooterBar />
@@ -41,4 +56,4 @@ const Product = () => {
     </>
   );
 };
-export default Product;
+export default Charts;

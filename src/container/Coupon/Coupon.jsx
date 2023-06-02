@@ -5,17 +5,17 @@ import { FooterBar } from "../../component/Footer/Footer";
 const { Content } = Layout;
 
 const Coupon = () => {
-    const {
-        token: { colorBgContainer },
-      } = theme.useToken();
-    return(
-        <>
-            <Layout
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+  return (
+    <>
+      <Layout
         style={{
           minHeight: "100vh",
         }}
       >
-        <Sidebar keyBar={"coupon"}/>
+        <Sidebar keyBar={"coupon"} />
         <Layout>
           <Navbar />
           <Content
@@ -23,14 +23,7 @@ const Coupon = () => {
               margin: "0 16px",
             }}
           >
-            <Breadcrumb
-              style={{
-                margin: "16px 0",
-              }}
-            >
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
+            <Breadcrumb style={{ margin: "16px 0" }} />
             <div
               style={{
                 padding: 24,
@@ -44,7 +37,7 @@ const Coupon = () => {
           <FooterBar />
         </Layout>
       </Layout>
-        </>
-    )
-}
-export default Coupon
+    </>
+  );
+};
+export default Coupon;

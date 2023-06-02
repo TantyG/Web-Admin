@@ -9,7 +9,7 @@ const Login = () => {
     const loginForm = (values) =>{
         message.success("Login Successful!");
         dispatch.auth.setUsername(values.username);
-        navigate('/')
+        navigate('/home')
     };  
     return(
         <>

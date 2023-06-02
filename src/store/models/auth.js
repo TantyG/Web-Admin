@@ -1,6 +1,6 @@
 export const auth = {
     state: {
-        username: "Billion",
+        username: "",
         password: "******",
     }, // initial state
     reducers: {

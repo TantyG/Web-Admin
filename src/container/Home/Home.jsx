@@ -12,12 +12,11 @@ const Home = () => {
   } = theme.useToken();
   const usersStore = useSelector((state) => state.users);
   //const logged =  useSelector((state) => state.auth);
+  const userID = usersStore.currentUser;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch.users.fetchUser();
-  }, []);
-
-  console.log("asdd", usersStore);
+  }, [dispatch]);
   const columns = [
     {
       title: "ID",
@@ -75,7 +74,7 @@ const Home = () => {
               }}
             >
               <h1>Home</h1>
-              <Table columns={columns} dataSource={usersStore.listUser} />
+              <Table columns={columns} dataSource={userID} />
             </div>
           </Content>
           <FooterBar />

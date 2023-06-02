@@ -25,14 +25,7 @@ const Custumer = () => {
               margin: "0 16px",
             }}
           >
-            <Breadcrumb
-              style={{
-                margin: "16px 0",
-              }}
-            >
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>Customer</Breadcrumb.Item>
-            </Breadcrumb>
+            <Breadcrumb style={{margin: "16px 0"}}/>
             <div
               style={{
                 padding: 24,

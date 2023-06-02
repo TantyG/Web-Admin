@@ -25,7 +25,7 @@ const data = [
     state: {
         listUser: data,
         count: data.length,
-        currentUser: {}
+        currentUser: []
     }, // initial state
     reducers: {
       // handle state changes with pure functions
@@ -59,6 +59,7 @@ const data = [
         const data = await fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json());
         this.setListUser(data);
+        this.setCurrentUser(data);
       }
 
     }),
@@ -66,8 +67,15 @@ const data = [
       selectCount() {
         return slice(state => state.count);
       },
-      selectCurrentUser() {
-        return slice(state => state.currentUser);
+      setListUser() {
+        return createSelector(
+          slice(state => state.listUser),
+          (state, params) => {
+            return Object.values(state)
+              .filter(p => p.type === params.type)
+              .filter(p => p.listUser.includes(params.listUser));
+          }
+        );      
       },
   }),
   };
