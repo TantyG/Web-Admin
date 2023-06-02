@@ -5,6 +5,7 @@ import { FooterBar } from "../../component/Footer/Footer";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button, Form, Input } from "antd";
+import { Label } from "recharts";
 const { Content } = Layout;
 
 const layout = {
@@ -41,7 +42,7 @@ const ProductEdit = () => {
         console.log(err.message);
       });
   }, []);
-  
+
   const [form] = Form.useForm();
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
@@ -66,7 +67,7 @@ const ProductEdit = () => {
         console.log(err.message);
       });
   };
-  console.log("null" , title);
+  console.log("null", id);
 
   return (
     <>
@@ -75,7 +76,7 @@ const ProductEdit = () => {
           minHeight: "100vh",
         }}
       >
-        <Sidebar keyBar={"coupon"} />
+        <Sidebar keyBar={""} />
         <Layout>
           <Navbar />
           <Content
@@ -83,7 +84,7 @@ const ProductEdit = () => {
               margin: "0 16px",
             }}
           >
-            <Breadcrumb style={{margin: "16px 0"}}/>
+            <Breadcrumb style={{ margin: "16px 0" }} />
             <div
               style={{
                 padding: 24,
@@ -92,85 +93,40 @@ const ProductEdit = () => {
               }}
             >
               <h1>Edit Product</h1>
-              <Form
-                {...layout}
-                form={form}
-                name="control-hooks"
-                onFinish={onFinish}
-                style={{
-                  maxWidth: 600,
-                }}
-                //initialValues={""}
-              >
-                <Form.Item name="id" label="ID">
-                  <Input defaultValue={id} disabled="disabled" />
-                </Form.Item>
-                <Form.Item
-                  name="title"
-                  label="Title"
-                  rules={[
-                    {
-                      required: true,
-                    },
-                  ]}
-                >
-                  <Input
-                    defaultValue={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                </Form.Item>
-                <Form.Item
-                  name="category"
-                  label="Category"
-                  rules={[
-                    {
-                      required: true,
-                    },
-                  ]}
-                >
-                  <Input
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  />
-                </Form.Item>
-                <Form.Item
-                  name="description"
-                  label="Description"
-                  rules={[
-                    {
-                      required: true,
-                    },
-                  ]}
-                >
-                  <Input
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
-                </Form.Item>
-                <Form.Item
-                  name="brand"
-                  label="Brand"
-                  rules={[
-                    {
-                      required: true,
-                    },
-                  ]}
-                >
-                  <Input
-                    value={brand}
-                    onChange={(e) => setBrand(e.target.value)}
-                  />
-                </Form.Item>
-
-                <Form.Item {...tailLayout}>
-                  <Link rel="stylesheet" to="/product">
-                    <Button htmlType="button">Back to Product</Button>
-                  </Link>{" "}
-                  <Button type="primary" htmlType="submit">
-                    Submit
-                  </Button>
-                </Form.Item>
-              </Form>
+              <label>ID: </label>
+              <br /><br />
+              <Input name="id" value={id} disabled="disabled" />
+              <br /><br />
+              <label>Title: </label>
+              <br /><br />
+              <Input value={title} onChange={(e) => setTitle(e.target.value)} />
+              <br /><br />
+              <label>Category: </label>
+              <br /><br />
+              <Input
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              />
+              <br /><br />
+              <label>Description: </label>
+              <br /><br />
+              <Input
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <br /><br />
+              <label>Brand: </label>
+              <br /><br />
+              <Input value={brand} onChange={(e) => setBrand(e.target.value)} />
+              <br /><br />
+              <div>
+                <Link rel="stylesheet" to="/product">
+                  <Button htmlType="button">Back to Product</Button>
+                </Link>{" "}
+                <Button type="primary" onClick={() => onFinish()}>
+                  Submit
+                </Button>
+              </div>
             </div>
           </Content>
           <FooterBar />
